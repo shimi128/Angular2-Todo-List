@@ -1,0 +1,8 @@
+<li [ngClass]="{completed: item.completed, editing: item.editing}">
+    <div class="view">
+        <input class="toggle" type="checkbox" [checked]="item.completed" #completedCheckbox (change)="changeCompleted(completedCheckbox.checked)">
+        <label (click)="editItem()">{{ item.title }}</label>
+        <button class="destroy" (click)="destroyItem()"></button>
+    </div>
+    <input class="edit" [value]="item.title" #editItemInput (keyup.enter)="changeTitle(editItemInput.value)" (keyup.escape)="cancelEdit()">
+</li>
