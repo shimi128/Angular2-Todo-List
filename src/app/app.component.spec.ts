@@ -2,12 +2,22 @@
 
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { HeaderComponent } from './components/header/header.component';
+import { TodoListComponent } from './components/todo-list/todo-list.component';
+import { TodoItemComponent } from './components/todo-item/todo-item.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { TodoInputComponent } from './components/todo-input/todo-input.component';
 
 describe('App: TodoList', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        HeaderComponent,
+    TodoInputComponent,
+    TodoItemComponent,
+    TodoListComponent,
+    FooterComponent
       ],
     });
   });
