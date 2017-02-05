@@ -6,6 +6,7 @@ export const APP={
 export const LIST = {
     ADD_ITEM   : 'ADD_ITEM',
     REMOVE_ITEM: 'REMOVE_ITEM',
-    EDIT_ITEM:'EDIT_ITEM'
+    EDIT_ITEM:'EDIT_ITEM',
+    CHANGE_COMPLETED:'CHANGE_COMPLETED'
 };
 

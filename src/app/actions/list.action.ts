@@ -1,5 +1,5 @@
 import {Store} from "../app.store";
-import {LIST} from "./actions";
+import {LIST} from "../constants/actions";
 import {Injectable} from "@angular/core";
 
 @Injectable()
@@ -30,4 +30,5 @@ export class ListActions {
             payload: item
         })
     }
+
 }

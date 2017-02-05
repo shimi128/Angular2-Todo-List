@@ -1,5 +1,7 @@
 import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
 import { TodoItem } from '../../models/todo-item.model'
+import {Store} from "../../app.store";
+import {ListActions} from "../../actions/list.action";
 
 @Component({
     selector: 'aah-todo-item',
@@ -8,19 +10,23 @@ import { TodoItem } from '../../models/todo-item.model'
 })
 export class TodoItemComponent implements OnInit {
     @Input() item: TodoItem;
-    @Output() destroy: EventEmitter<any> = new EventEmitter();
-    @Output() editing: EventEmitter<any> = new EventEmitter();
-
-    constructor() { }
+    //@Output() destroy: EventEmitter<any> = new EventEmitter();
+    //@Output() editing: EventEmitter<any> = new EventEmitter();
+private list:ListActions;
+    constructor(_list:ListActions) {
+        this.list=_list;
+    }
 
     ngOnInit() { }
 
     changeCompleted(checked: boolean): void {
-        this.item.completed = checked;
+       // this.item.completed = checked;
+        this.list.edit(this.item);
     }
 
     destroyItem(): void {
-        this.destroy.emit(this.item);
+        //this.destroy.emit(this.item);
+
     }
 
     editItem(): void {
@@ -30,8 +36,8 @@ export class TodoItemComponent implements OnInit {
         // this will be refactored when we'll use a directive
         // to set autofocus on the input, 
         // and then we could use (blur)="cancelEdit()"
-        this.editing.emit(this.item);
-        this.item.editing = true;
+       // this.editing.emit(this.item);
+       // this.item.editing = true;
     }
 
     changeTitle(newTitle: string): void {
